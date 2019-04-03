@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'eclipse' // optional (to generate Eclipse project files)
+    id 'idea' // optional (to generate IntelliJ IDEA project files)
+}
+
+
+group = 'com.example.ryudug'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //junit 5
+    testImplementation('org.junit.jupiter:junit-jupiter:5.4.1')
+}
+
+test {
+    useJUnitPlatform()
+
+    //http://blog.hkwon.me/gradle-test-task-logging/
+    //https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.logging.TestLogging.html
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+        showCauses = true
+        showExceptions = true
+        showStackTraces = true
+        exceptionFormat = 'full'
+    }
+}
